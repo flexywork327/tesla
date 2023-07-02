@@ -1,59 +1,52 @@
-import { Image, StyleSheet, Text, View } from "react-native";
 import Car from "../assets/images/car.png";
-import {
-  FontAwesome,
-  Entypo,
-  MaterialCommunityIcons,
-  FontAwesome5,
-  Ionicons,
-} from "@expo/vector-icons";
+import Controls from "../components/controls";
+import { FontAwesome } from "@expo/vector-icons";
+import menuList from "../assets/data/menuOptions";
+import MenuOption from "../components/menuOption";
+import { Image, StyleSheet, Text, View, FlatList } from "react-native";
 
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.title}>My Model S</Text>
+    <>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.title}>My Model S</Text>
 
-          <Text style={styles.subtitle}>Parked</Text>
+            <Text style={styles.subtitle}>Parked</Text>
+          </View>
+          <View>
+            <FontAwesome name="user-circle" size={30} color="red" />
+          </View>
         </View>
+
         <View>
-          <FontAwesome name="user-circle" size={30} color="red" />
+          <Image source={Car} style={styles.image} />
         </View>
-      </View>
 
-      <View>
-        <Image source={Car} style={styles.image} />
-      </View>
-
-      <View style={styles.controls}>
-        <Entypo name="lock" size={26} color="gray" />
-        <MaterialCommunityIcons name="fan" size={26} color="gray" />
-        <FontAwesome5 name="bolt" size={26} color="gray" />
-        <Ionicons name="car-sport-sharp" size={26} color="gray" />
-      </View>
-
-      {/* Manu option list */}
-      <View style={styles.optionRow}>
-        <FontAwesome name="car" size={24} color="gray" />
-
-        <Text style={styles.menuItemText}>Controls</Text>
-
-        <FontAwesome
-          name="chevron-right"
-          size={24}
-          color="gray"
-          style={{ marginLeft: "auto" }}
+        {/*  List Header Component allows us to add a component to the top of the list to make scroll with the list */}
+        <FlatList
+          data={menuList}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => <MenuOption item={item} />}
+          ListHeaderComponent={Controls}
         />
+        <View>
+          <Text style={{ color: "gray", textAlign: "center", marginTop: 24 }}>
+            Tesla © 2021
+          </Text>
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    paddingTop: 24,
+    paddingHorizontal: 24,
+    paddingBottom: 10,
     backgroundColor: "#161818",
   },
   header: {
@@ -77,20 +70,5 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain",
     marginTop: 24,
-  },
-  controls: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-  optionRow: {
-    flexDirection: "row",
-    marginTop: 24,
-    alignItems: "center",
-  },
-  menuItemText: {
-    color: "#FFFFFF",
-    fontSize: 18,
-    fontWeight: "500",
-    marginLeft: 16,
   },
 });
