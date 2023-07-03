@@ -1,22 +1,26 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { StyleSheet, Text, Pressable } from "react-native";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const MenuOption = ({ item }) => {
   return (
     <>
-      <View style={styles.optionRow}>
-        <MaterialCommunityIcons name={item.iconName} size={24} color="gray" />
+      {/* the link props only display text and so we add asChild to make rendering other items possible.Then we add the next item with an onPress props to make it work */}
+      <Link href={item.href} asChild>
+        <Pressable style={styles.optionRow}>
+          <MaterialCommunityIcons name={item.iconName} size={24} color="gray" />
 
-        <Text style={styles.menuItemText}>{item.name}</Text>
+          <Text style={styles.menuItemText}>{item.name}</Text>
 
-        <FontAwesome
-          name="chevron-right"
-          size={24}
-          color="gray"
-          style={{ marginLeft: "auto" }}
-        />
-      </View>
+          <FontAwesome
+            name="chevron-right"
+            size={24}
+            color="gray"
+            style={{ marginLeft: "auto" }}
+          />
+        </Pressable>
+      </Link>
     </>
   );
 };
