@@ -2,7 +2,7 @@ import React from "react";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-const _layout = ({ children }) => {
+const _layout = () => {
   return (
     <>
       <StatusBar style="light" />
