@@ -38,3 +38,51 @@ Use [`expo-router`](https://expo.github.io/router) to build native navigation us
 ```sh
 npx create-expo-app -e with-router
 ```
+
+## 📝 Expo App Services
+
+Note: 📌 [expo.io documentation](https://docs.expo.dev/build/introduction/)
+
+### 📂 EAS Build
+
+- First have to login into your expo account
+
+```sh
+$ eas login
+```
+
+- Then have to configure your project
+
+```sh
+$ eas build:configure
+```
+
+- Then have to build your project for android or ios
+
+```sh
+$ eas build --platform android
+```
+
+```sh
+$ eas build --platform ios
+```
+
+### 📝 EAS Build and Submit
+
+- configure your eas.json file to build .apk file
+
+```json
+{
+  "apkbuild": {
+    "android": {
+      "buildType": "apk"
+    }
+  }
+}
+```
+
+- Then have to build your project for android or ios
+
+```sh
+$ eas build -p all --profile preview
+```

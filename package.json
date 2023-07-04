@@ -3,7 +3,8 @@
     "start": "expo start --clear",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "make-android-apk": "eas build -p android --profile apkbuild"
   },
   "dependencies": {
     "expo": "^48.0.7",

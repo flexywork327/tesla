@@ -14,16 +14,16 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "extra": {
-      "eas": {
-        "projectId": "3f050478-7819-49c0-ad5b-aa8479e85934"
-      }
-    },
     "android": {
       "package": "com.floki327.TeslaApp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#ffffff"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9eab1ac7-617b-4ff0-8538-92fe4e8864b7"
       }
     }
   }
