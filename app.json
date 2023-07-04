@@ -5,7 +5,7 @@
       "bundler": "metro"
     },
     "name": "Tesla App",
-    "slug": "Tesla App",
+    "slug": "TeslaApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
@@ -20,7 +20,11 @@
       }
     },
     "android": {
-      "package": "com.floki327.TeslaApp"
+      "package": "com.floki327.TeslaApp",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#ffffff"
+      }
     }
   }
 }

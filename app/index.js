@@ -1,12 +1,12 @@
+import Footer from "../components/footer";
 import Car from "../assets/images/car.png";
 import Controls from "../components/controls";
 import { FontAwesome } from "@expo/vector-icons";
 import menuList from "../assets/data/menuOptions";
 import MenuOption from "../components/menuOption";
 import { Image, StyleSheet, Text, View, FlatList } from "react-native";
-export default function Page() {
-  const date = new Date().getFullYear();
 
+export default function Page() {
   return (
     <>
       <View style={styles.container}>
@@ -14,7 +14,7 @@ export default function Page() {
           <View>
             <Text style={styles.title}>My Model S</Text>
 
-            <View style={styles.batteryStaus}>
+            <View style={styles.batteryStatus}>
               <FontAwesome name="battery-3" size={24} color="green" />
               <Text style={styles.subtitle}> 250 mi</Text>
             </View>
@@ -38,10 +38,8 @@ export default function Page() {
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => <MenuOption item={item} />}
           ListHeaderComponent={Controls}
+          ListFooterComponent={Footer}
         />
-        <View style={styles.footer}>
-          {date && <Text style={styles.footerText}>Tesla © {date}</Text>}
-        </View>
       </View>
     </>
   );
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
     color: "gray",
     fontWeight: "500",
   },
-  batteryStaus: {
+  batteryStatus: {
     flexDirection: "row",
     alignItems: "center",
   },
@@ -80,13 +78,5 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain",
     marginTop: 24,
-  },
-  footer: {
-    marginTop: "auto",
-    paddingTop: 34,
-  },
-  footerText: {
-    color: "gray",
-    textAlign: "center",
   },
 });
